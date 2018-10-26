@@ -1,4 +1,4 @@
-package com.cn.bbwt.common;
+package com.cn.bbwt.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
