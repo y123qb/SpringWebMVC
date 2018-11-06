@@ -24,7 +24,7 @@ public class CountDownLatchTest {
 	public static int threadNum = 20;//创建的线程数量
 	public static int requestNum = 100;//每个线程请求次数
 	public static String url = "http://localhost:8082/creditScore";//请求地址
-//	public static String url = "http://10.7.101.78:8082/creditScore";//请求地址
+//	public static String url = "http://10.7.101.78:8081/creditScore";//请求地址
 	
     public static void main(String[] args) throws InterruptedException {
         CountDownLatchTest latchTest = new CountDownLatchTest();
