@@ -22,9 +22,9 @@ public class BeanCopyUtils {
 					continue;
 				}
 				//获得这个变量的基本信息（此处我们需要的是方法包括get和set）
-				PropertyDescriptor targetPd = new PropertyDescriptor(field.getName(), target.getClass());	
+				PropertyDescriptor targetPd = new PropertyDescriptor(field.getName(), target.getClass());
 				//获得set方法
-				Method writeMethod = targetPd.getWriteMethod();	
+				Method writeMethod = targetPd.getWriteMethod();
 				if(writeMethod!=null){
 					/*因为目标类和源类在变量上不一样（此处主要针对是相同变量名大小写不一样）而目标类上的注解名跟源类一样，所以我们
 					取目标类的注解名字来找源类相同的字段的get方法取值
@@ -56,6 +56,6 @@ public class BeanCopyUtils {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 }

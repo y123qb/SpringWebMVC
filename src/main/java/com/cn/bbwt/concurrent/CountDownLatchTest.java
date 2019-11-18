@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.CountDownLatch;
- 
+
 /***
  * 利用闭锁countDownLatch 模拟并发请求
  * countDownLatch 实现原理是利用计数器原理，再初始化的时候设置线程的个数（主线程可以设置1）
@@ -20,18 +20,18 @@ import java.util.concurrent.CountDownLatch;
  *
  */
 public class CountDownLatchTest {
-	
+
 	public static int threadNum = 100;//创建的线程数量
 	public static int requestNum = 100;//每个线程请求次数
 	public static String url2 = "http://10.7.101.78:8082/creditScore";//请求地址
 	public static String url = "http://10.7.101.78:8082/independentAudit";//请求地址
-	
+
     public static void main(String[] args) throws InterruptedException {
         CountDownLatchTest latchTest = new CountDownLatchTest();
         Runnable thread = new ZzsdCreditScoreThread();//执行任务发请求的线程
         latchTest.beginTask(CountDownLatchTest.threadNum, thread);
     }
- 
+
     public String beginTask(int threadNums, final Runnable runnable) throws InterruptedException {
     	//给当前进程设置一个闭锁，里面就他自己执行。其实就是设置了一个门，等待后面一键开启
     	final CountDownLatch mainThread = new CountDownLatch(1);

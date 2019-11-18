@@ -55,7 +55,7 @@ public class HttpClientOp {
 	                    e.printStackTrace();
 	                }
 	            }
-	 
+
 	            if (null != is) {
 	                try {
 	                    is.close();
@@ -63,15 +63,15 @@ public class HttpClientOp {
 	                    e.printStackTrace();
 	                }
 	            }
-	 
+
 	            connection.disconnect();// 关闭远程连接
 	        }
-	 
+
 	        return result;
 	    }
-	 
+
 	    public static String doPost(String httpUrl, String param) {
-	 
+
 	        HttpURLConnection connection = null;
 	        InputStream is = null;
 	        OutputStream os = null;
@@ -87,7 +87,7 @@ public class HttpClientOp {
 	            connection.setConnectTimeout(15000);
 	            // 设置读取主机服务器返回数据超时时间：60000毫秒
 	            connection.setReadTimeout(60000);
-	 
+
 	            // 默认值为：false，当向远程服务器传送数据/写数据时，需要设置为true
 	            connection.setDoOutput(true);
 	            // 默认值为：true，当前向远程服务读取数据时，设置为true，该参数可有可无
@@ -102,11 +102,11 @@ public class HttpClientOp {
 	            os.write(param.getBytes());
 	            // 通过连接对象获取一个输入流，向远程读取
 	            if (connection.getResponseCode() == 200) {
-	 
+
 	                is = connection.getInputStream();
 	                // 对输入流对象进行包装:charset根据工作项目组的要求来设置
 	                br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-	 
+
 	                StringBuffer sbf = new StringBuffer();
 	                String temp = null;
 	                // 循环遍历一行一行读取数据
